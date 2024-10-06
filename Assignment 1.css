@@ -1,0 +1,129 @@
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif; 
+/* Set the font family */
+    margin: 0; 
+/* Remove default margin */
+    padding: 20px;
+
+/* Add padding around the content */
+    background: linear-gradient(to right, #fae500ff, #fae500ff); 
+
+/* Set a gradient background */
+    color: #333; 
+
+/* Set the default text color */
+}
+
+/* Main heading styling */
+h1 {
+    text-align: center; 
+
+/* Center the text */
+    color: #ff00e6; 
+
+/* Set the text color */
+    margin-bottom: 20px; 
+
+/* Add space below the heading */
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex; 
+
+/* Use flexbox for layout */
+    flex-direction: column; 
+
+/* Arrange items in a column */
+    align-items: center; 
+
+/* Center items horizontally */
+    margin-bottom: 20px; 
+
+/* Add space below the button container */
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px; 
+/* Add padding inside the button */
+    margin: 5px; 
+
+/* Add margin around the button */
+    font-size: 16px; 
+
+/* Set the font size */
+    cursor: pointer; 
+
+/* Change cursor to pointer on hover */
+    border: none; 
+
+/* Remove default border */
+    border-radius: 5px; 
+
+/* Round the corners of the button */
+    background-color: #4a90e2; 
+
+/* Set the background color */
+    color: white; 
+
+/* Set the text color */
+    transition: background-color 0.3s; 
+
+/* Smooth transition for background color */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #357ab8; 
+
+/* Change background color on hover */
+}
+
+/* Styling for choice text next to buttons */
+.choice {
+    margin-top: 5px; 
+
+/* Add space above the choice text */
+    font-weight: bold; 
+
+/* Make the text bold */
+    font-style: italic; 
+
+/* Italicize the text */
+    color: #333; 
+
+/* Set the text color */
+}
+
+/* Styling for the story display area */
+#story {
+    margin-top: 20px; 
+    
+/* Add space above the story area */
+    font-size: 20px; 
+
+/* Set the font size */
+    text-align: center; 
+
+/* Center the text */
+    font-weight: bold; 
+
+/* Make the text bold */
+    border: 2px solid #ff7b00; 
+
+/* Add a border with specified color */
+    border-radius: 5px; 
+
+/* Round the corners of the border */
+    padding: 15px; 
+
+/* Add padding inside the story area */
+    background-color: #24a931; 
+
+/* Set the background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+
+/* Add a subtle shadow effect */
+}

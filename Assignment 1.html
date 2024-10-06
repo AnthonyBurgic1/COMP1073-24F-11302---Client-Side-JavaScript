@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Your Fantasy Story</title>
+
+<!-- Here is my link to the external CSS file -->
+<link rel="stylesheet" href="styles.css"> 
+<style>
+
+/* Here is some basic styling for the body */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(to right, #fae500ff, #fae500ff);
+        color: #333;
+    }
+
+/* Here is some styling for the main heading */
+    h1 {
+        text-align: center;
+        color: #ff00e6;
+        margin-bottom: 20px;
+    }
+
+/* This is a container for buttons */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+/* Here is the button styling section */
+    button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #4a90e2;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+/* Here is the button hover effect area */
+    button:hover {
+        background-color: #357ab8;
+        
+    }
+
+/* This area is for styling for choices displayed next to buttons */
+    .choice {
+        margin-top: 5px;
+        font-weight: bold;
+        font-style: italic;
+        color: #333;
+    }
+
+/* Here is the area for styling for the story display area */
+    #story {
+        margin-top: 20px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        border: 2px solid #ff7b00;
+        border-radius: 5px;
+        padding: 15px;
+        background-color: #24a931;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    </style>
+</head>
+<body>
+
+<h1>Create Your Fantasy Story Here!</h1>
+
+<!-- Here is the button container for selecting story elements -->
+<div class="button-container">
+    <button onclick="cycleWord('creature')">Creature <span id="creature-choice" class="choice"></span></button>
+    <button onclick="cycleWord('magical_item')">Magical Item <span id="magical-item-choice" class="choice"></span></button>
+    <button onclick="cycleWord('location')">Location <span id="location-choice" class="choice"></span></button>
+    <button onclick="cycleWord('hero')">Hero <span id="hero-choice" class="choice"></span></button>
+    <button onclick="cycleWord('quest')">Quest <span id="quest-choice" class="choice"></span></button>
+</div>
+
+<!-- Here is the buttons for showing story, generating random story, and resetting choices -->
+<button onclick="showStory()">Show Finished Story</button>
+<button onclick="generateRandomStory()">Generate Random Story</button>
+<button onclick="resetChoices()">Reset</button>
+
+<!-- This the area to display the generated story -->
+<div id="story"></div>
+
+<script>
+
+// Here is a area where arrays are holding possible choices for each story category \\ 
+    const wordsArray = {
+        creature: ['Dragon', 'Unicorn', 'Elf', 'Goblin'],
+        magical_item: ['Magic Wand', 'Enchanted Shield', 'Crystal Ball', 'Potion'],
+        location: ['Mystic Forest', 'Ancient Castle', 'Hidden Valley', 'Dark Cave'],
+        hero: ['Brave Knight', 'Cunning Thief', 'Wise Sorceress', 'Fearless Warrior'],
+        quest: ['to save the kingdom', 'to find the lost treasure', 'to defeat the dark lord', 'to uncover ancient secrets']
+    };
+
+// This is to object to track the currently selected index for each category \\
+    const selectedWords = {
+        creature: 0,
+        magical_item: 0,
+        location: 0,
+        hero: 0,
+        quest: 0
+    };
+
+// Here is the function to cycle through words in a selected category \\ 
+    function cycleWord(category) {
+    selectedWords[category] = (selectedWords[category] + 1) % wordsArray[category].length; 
+
+// Increment and loop back \\ 
+    const chosenWord = wordsArray[category][selectedWords[category]]; 
+
+// Get the chosen word \\ 
+    document.getElementById(`${category}-choice`).innerText = chosenWord; 
+
+// Here is where you can display the chosen word \\
+}
+
+// Here is the function to show the finished story based on selected words \\ 
+    function showStory() {
+    const selectedStory = Object.keys(selectedWords)
+        .map(key => wordsArray[key][selectedWords[key]]) 
+
+// Create a story based on selected words \\
+        .join(', ');
+
+// Construct and display the story \\ 
+    document.getElementById('story').innerText = `Once upon a time, a ${wordsArray.creature[selectedWords.creature]} encountered 
+    a ${wordsArray.magical_item[selectedWords.magical_item]} in the ${wordsArray.location[selectedWords.location]}. With the help of a 
+    ${wordsArray.hero[selectedWords.hero]}, they set out on a quest ${wordsArray.quest[selectedWords.quest]}.`;
+}
+
+// Here is the function to generate a random story \\ 
+    function generateRandomStory() {
+
+// This is the area where you can select a random word from each category \\ 
+    const randomCreature = wordsArray.creature[Math.floor(Math.random() * wordsArray.creature.length)];
+    const randomMagicalItem = wordsArray.magical_item[Math.floor(Math.random() * wordsArray.magical_item.length)];
+    const randomLocation = wordsArray.location[Math.floor(Math.random() * wordsArray.location.length)];
+    const randomHero = wordsArray.hero[Math.floor(Math.random() * wordsArray.hero.length)];
+    const randomQuest = wordsArray.quest[Math.floor(Math.random() * wordsArray.quest.length)];
+
+// Construct and display the random story \\ 
+    const randomStory = `Once upon a time, a ${randomCreature} encountered a ${randomMagicalItem} in the ${randomLocation}. With the help of a 
+    ${randomHero}, they set out on a quest ${randomQuest}.`;
+    document.getElementById('story').innerText = randomStory;
+    speakStory(randomStory); 
+
+// Speak the random story \\ 
+
+}
+
+// Here is a function to use for the Web Speech API to speak the generated story \\ 
+    function speakStory(story) {
+    const speech = new SpeechSynthesisUtterance(story); 
+
+// Create a speech object \\ 
+    speech.lang = 'en-US'; 
+
+// This is to set the language for the speech \\ 
+    window.speechSynthesis.speak(speech); 
+
+// Speak the story \\ 
+
+}
+
+// Function to reset all choices and clear the displayed story \\ 
+    function resetChoices() {
+    for (const category in selectedWords) {
+    selectedWords[category] = 0; 
+
+// Reset selected index \\
+    document.getElementById(`${category}-choice`).innerText = ''; 
+
+// Clear displayed choices \\ 
+    }
+    document.getElementById('story').innerText = ''; 
+
+// Clear the story display \\ 
+}
+</script>
+
+</body>
+</html>
