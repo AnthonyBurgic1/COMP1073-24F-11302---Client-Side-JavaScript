@@ -1,0 +1,166 @@
+/* Here we can reset all elements to use border-box sizing, and remove default padding/margins */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the body with a background color, center content, and use flex for alignment */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #cc0000;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Heading styles with a consistent color and bottom margin */
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Header styling with a gradient background, white text, and slight border radius */
+.header {
+    background: linear-gradient(to right, #ff4d4d, #cc0000);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header title styling */
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Styles for the search bar layout */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Input styling within the search bar, rounded on the left side */
+.search-bar input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+}
+
+/* Button styling within the search bar, rounded on the right side */
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #e60000;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect within the search bar */
+.search-bar button:hover {
+    background-color: #cc0000;
+}
+
+/* Center images horizontally */
+.center-image {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Main container styling for car information with padding, background, and shadow */
+.car-container {
+    max-width: 800px;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+}
+
+/* Styling for car details and form sections with background, padding, shadow, and rounded corners */
+.car-details, .form-container {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Center-align text in the car details section */
+.car-details {
+    text-align: center;
+}
+
+/* Styling for paragraphs in car details with spacing */
+.car-details p {
+    margin: 5px 0;
+}
+
+/* Form container heading style */
+.form-container h2 {
+    text-align: center;
+    color: #34495e;
+}
+
+/* Form labels with bold text and spacing */
+.form-container label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Input field styling with padding, margin, border, and rounded corners */
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* General button styling with background color, padding, rounded corners, and hover effect */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button to change background color */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Styling for headings inside the car display area */
+#carDisplay h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Styling for paragraphs inside the car display with font size and line spacing */
+#carDisplay p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}

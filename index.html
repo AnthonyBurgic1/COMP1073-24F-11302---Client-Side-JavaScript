@@ -1,245 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smoothie Order Form</title>
-    <style>
-        /* Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #4CAF50;
-            text-align: center;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        form label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-size: 0.9rem;
-        }
-        form input[type="text"],
-        form input[type="email"],
-        form input[type="tel"],
-        form select,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #f9f9f9;
-        }
-        .checkbox-group {
-            margin-bottom: 20px;
-        }
-        .checkbox-group label {
-            font-size: 0.9rem;
-            color: #555;
-            display: inline-block;
-            margin-left: 8px;
-        }
-        .button-container {
-            text-align: center;
-            margin-top: 15px;
-        }
-        button {
-            padding: 12px 24px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-        }
-        button[type="submit"] {
-            background-color: #4CAF50;
-            color: #ffffff;
-        }
-        button[type="button"] {
-            background-color: #00aaff;
-            color: #ffffff;
-        }
-        button:hover {
-            opacity: 0.9;
-        }
-        .summary {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e7f5ff;
-            border-left: 5px solid #4CAF50;
-            border-radius: 5px;
-            font-size: 1rem;
-            color: #333;
-        }
-        .smoothie-image {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .smoothie-image img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-        }
-    </style>
+
+<!-- Sets the document type and language for the HTML file -->
+<meta charset="UTF-8">
+<!-- Defines the character set to UTF-8 for proper text rendering -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Makes the page responsive to different screen sizes -->
+<title>Toy Car Showcase</title>
+<!-- Sets the title of the page that appears on the browser tab -->
+<style>
+
+/* Adds basic styles for body text, background color, and text color */
+    body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
+        
+/* Adds margin around the main container for car elements */
+    .car-container { margin: 20px; }
+        
+/* Styles for individual car details, with padding, border, and background color */
+    .car-details { padding: 10px; border: 1px solid #ddd; background: #fff; }
+        
+/* Styles the form container with padding and background color */
+    .form-container { padding: 20px; background: #eee; }
+        
+/* Makes form inputs take up the full width and adds margin for spacing */
+    input[type="text"], input[type="number"], input[type="checkbox"] { width: 100%; margin: 5px 0; }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Smoothie Order Form</h2>
-        <form id="smoothieForm" action="/submit_order" method="post">
-            
-            <!-- Customer Information -->
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+<!-- Header section containing the title and a search bar -->
+<div class="header">
+<h1>Toy Car Showcase</h1> <!-- Main title for the page -->
+<div class="search-bar">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+<!-- Search input field and button for searching car models -->
+<input type="text" placeholder="Search cars..." />
+<button>Search</button>
+</div>
+</div>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+<!-- Image of a toy car with alt text for accessibility and class for styling/positioning -->
+<img src="images/PorscheDakar.jpeg" alt="Rally toy car" class="car-image center-image">
 
-            <!-- Smoothie Details -->
-            <label for="size">Smoothie Size:</label>
-            <select id="size" name="size" required>
-                <option value="small">Small ($5.00)</option>
-                <option value="medium">Medium ($7.00)</option>
-                <option value="large">Large ($9.00)</option>
-            </select>
+<div style="text-align: center;">
+</div>
 
-            <label for="flavor">Choose a Flavor:</label>
-            <select id="flavor" name="flavor" required>
-                <option value="strawberry">Strawberry</option>
-                <option value="banana">Banana</option>
-                <option value="mango">Mango</option>
-                <option value="blueberry">Blueberry</option>
-            </select>
+<!-- Main container for car details and form for creating new car instances -->
+<div class="car-container">
 
-            <div class="checkbox-group">
-                <label>Extra Ingredients:</label><br>
-                <input type="checkbox" id="chia" name="extras" value="chia seeds">
-                <label for="chia">Chia Seeds (+$1.00)</label><br>
-                <input type="checkbox" id="protein" name="extras" value="protein powder">
-                <label for="protein">Protein Powder (+$1.50)</label><br>
-                <input type="checkbox" id="spinach" name="extras" value="spinach">
-                <label for="spinach">Spinach (+$0.75)</label><br>
-            </div>
+<!-- Section where car details will be displayed dynamically -->
+<div id="carDisplay" class="car-details"></div>
 
-            <label for="instructions">Special Instructions:</label><br>
-            <textarea id="instructions" name="instructions" rows="4" cols="40"></textarea><br><br>
+<!-- Form for entering details to create a new car instance -->
+<div class="form-container">
+<h2>Create a New Car Instance</h2> <!-- Subheading for the form section -->
+<form id="carForm">
+    
+<!-- Each label/input pair corresponds to a property for a new car instance -->
+<label for="brand">Brand:</label><input type="text" id="brand">
+<label for="model">Model:</label><input type="text" id="model">
+<label for="color">Color:</label><input type="text" id="color">
+<label for="scale">Scale:</label><input type="text" id="scale">
+<label for="weight">Weight (g):</label><input type="number" id="weight">
+<label for="material">Material:</label><input type="text" id="material">
+<label for="price">Price ($):</label><input type="number" id="price">
+    
+<!-- Button to create a new car instance; calls the JavaScript function createCar() on click -->
+<button type="button" onclick="createCar()">Add Car</button>
+</form>
+</div>
+</div>
 
-            <!-- Button to Show Summary -->
-            <div class="button-container">
-                <button type="button" onclick="displaySmoothieSummary()">Show Smoothie Summary</button>
-                <button type="submit">Place Order</button>
-            </div>
-        </form>
-
-        <!-- Smoothie Summary Display -->
-        <div id="summary" class="summary"></div>
-
-        <!-- Smoothie Image Display -->
-        <div id="smoothieImage" class="smoothie-image">
-            <img id="image" src="" alt="Smoothie Image" style="display: none;">
-        </div>
-    </div>
-
-    <script>
-        // Pricing Data
-        const prices = {
-            size: {
-                small: 5.0,
-                medium: 7.0,
-                large: 9.0
-            },
-            extras: {
-                'chia seeds': 1.0,
-                'protein powder': 1.5,
-                'spinach': 0.75
-            }
-        };
-
-        class Smoothie {
-            constructor(flavor, size, extras = []) {
-                this.flavor = flavor;
-                this.size = size;
-                this.extras = extras;
-            }
-
-            calculateTotal() {
-                // Base price from size
-                let total = prices.size[this.size] || 0;
-
-                // Add price for each extra ingredient
-                for (let extra of this.extras) {
-                    total += prices.extras[extra] || 0;
-                }
-
-                return total.toFixed(2); // Format to 2 decimal places
-            }
-
-            getSummary() {
-                const extrasSummary = this.extras.length ? this.extras.join(', ') : 'no extras';
-                const total = this.calculateTotal();
-                return `A ${this.capitalize(this.size)} ${this.capitalize(this.flavor)} smoothie with ${extrasSummary}. Total: $${total}`;
-            }
-
-            capitalize(word) {
-                return word.charAt(0).toUpperCase() + word.slice(1);
-            }
-
-            getImage() {
-                const images = {
-                   
-                };
-                return images[this.flavor] || ""; // Return the image URL for the selected flavor
-            }
-        }
-
-        function displaySmoothieSummary() {
-            const flavor = document.getElementById("flavor").value;
-            const size = document.getElementById("size").value.toLowerCase().split(" ")[0];
-            const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked'))
-                                .map(checkbox => checkbox.value);
-
-            // Create a new Smoothie object and generate the summary
-            const smoothie = new Smoothie(flavor, size, extras);
-            const summary = smoothie.getSummary();
-
-            // Display the summary in the summary div
-            document.getElementById("summary").textContent = summary;
-
-            // Show the corresponding smoothie image
-            const imageUrl = smoothie.getImage();
-            const imageElement = document.getElementById("image");
-            imageElement.src = imageUrl;
-            imageElement.style.display = imageUrl ? "block" : "none"; // Show the image if it exists
-        }
-    </script>
+<!-- Links to JavaScript files for functionality and external CSS for additional styling -->
+<script src="ToyCar.js"></script> <!-- Script for defining the ToyCar object constructor -->
+<script src="app.js"></script> <!-- Main JavaScript file for page interactions -->
+<script src="Style.css"></script> <!-- External CSS file for additional styles -->
 
 </body>
 </html>
