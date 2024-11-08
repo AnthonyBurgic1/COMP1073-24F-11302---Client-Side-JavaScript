@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Sets the document type and language for the HTML file -->
+<meta charset="UTF-8">
+<!-- Defines the character set to UTF-8 for proper text rendering -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Makes the page responsive to different screen sizes -->
+<title>Toy Car Showcase</title>
+<!-- Sets the title of the page that appears on the browser tab -->
+<style>
+
+/* Adds basic styles for body text, background color, and text color */
+    body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
+        
+/* Adds margin around the main container for car elements */
+    .car-container { margin: 20px; }
+        
+/* Styles for individual car details, with padding, border, and background color */
+    .car-details { padding: 10px; border: 1px solid #ddd; background: #fff; }
+        
+/* Styles the form container with padding and background color */
+    .form-container { padding: 20px; background: #eee; }
+        
+/* Makes form inputs take up the full width and adds margin for spacing */
+    input[type="text"], input[type="number"], input[type="checkbox"] { width: 100%; margin: 5px 0; }
+</style>
+</head>
+<body>
+
+<!-- Header section containing the title and a search bar -->
+<div class="header">
+<h1>Toy Car Showcase</h1> <!-- Main title for the page -->
+<div class="search-bar">
+
+<!-- Search input field and button for searching car models -->
+<input type="text" placeholder="Search cars..." />
+<button>Search</button>
+</div>
+</div>
+
+<!-- Image of a toy car with alt text for accessibility and class for styling/positioning -->
+<img src="images/PorscheDakar.jpeg" alt="Rally toy car" class="car-image center-image">
+
+<div style="text-align: center;">
+</div>
+
+<!-- Main container for car details and form for creating new car instances -->
+<div class="car-container">
+
+<!-- Section where car details will be displayed dynamically -->
+<div id="carDisplay" class="car-details"></div>
+
+<!-- Form for entering details to create a new car instance -->
+<div class="form-container">
+<h2>Create a New Car Instance</h2> <!-- Subheading for the form section -->
+<form id="carForm">
+    
+<!-- Each label/input pair corresponds to a property for a new car instance -->
+<label for="brand">Brand:</label><input type="text" id="brand">
+<label for="model">Model:</label><input type="text" id="model">
+<label for="color">Color:</label><input type="text" id="color">
+<label for="scale">Scale:</label><input type="text" id="scale">
+<label for="weight">Weight (g):</label><input type="number" id="weight">
+<label for="material">Material:</label><input type="text" id="material">
+<label for="price">Price ($):</label><input type="number" id="price">
+    
+<!-- Button to create a new car instance; calls the JavaScript function createCar() on click -->
+<button type="button" onclick="createCar()">Add Car</button>
+</form>
+</div>
+</div>
+
+<!-- Links to JavaScript files for functionality and external CSS for additional styling -->
+<script src="ToyCar.js"></script> <!-- Script for defining the ToyCar object constructor -->
+<script src="app.js"></script> <!-- Main JavaScript file for page interactions -->
+<script src="Style.css"></script> <!-- External CSS file for additional styles -->
+
+</body>
+</html>
